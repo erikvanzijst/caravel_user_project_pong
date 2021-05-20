@@ -1,3 +1,6 @@
 [submodule "caravel-lite"]
 	path = caravel
 	url = https://github.com/efabless/caravel-lite
+[submodule "verilog/rtl/wrapped_pong"]
+	path = verilog/rtl/wrapped_pong
+	url = git@github.com:erikvanzijst/wrapped_pong.git

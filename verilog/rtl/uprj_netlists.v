@@ -24,5 +24,15 @@
     `include "gl/user_proj_example.v"
 `else
     `include "user_project_wrapper.v"
-    `include "user_proj_example.v"
+    `include "wrapped_pong/wrapper.v"
+    `include "wrapped_pong/pong/src/debounce.v"
+    `include "wrapped_pong/pong/src/ball.v"
+    `include "wrapped_pong/pong/src/game.v"
+    `include "wrapped_pong/pong/src/clkdiv.v"
+    `include "wrapped_pong/pong/src/paddle.v"
+    `include "wrapped_pong/pong/src/screen.v"
+    `include "wrapped_pong/pong/src/trig.v"
+    `include "wrapped_pong/pong/src/rot_encoder.v"
+    `include "wrapped_pong/pong/src/pong.v"
+    `include "wrapped_pong/pong/src/score.v"
 `endif

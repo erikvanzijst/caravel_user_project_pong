@@ -14,7 +14,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-## Caravel Pointers
 CARAVEL_ROOT ?= ../../../caravel
 CARAVEL_PATH ?= $(CARAVEL_ROOT)
 CARAVEL_FIRMWARE_PATH = $(CARAVEL_PATH)/verilog/dv/caravel
@@ -27,21 +26,32 @@ UPRJ_VERILOG_PATH ?= ../../../verilog
 UPRJ_RTL_PATH = $(UPRJ_VERILOG_PATH)/rtl
 UPRJ_BEHAVIOURAL_MODELS = ../
 
-## RISCV GCC 
 GCC_PATH?=/home/erik/riscv64/bin
 GCC_PREFIX?=riscv64-unknown-elf
 PDK_PATH?=$(PDKPATH)
 
-## Simulation mode: RTL/GL
 SIM?=RTL
+
+# include the modules that cocotb needs for test
+# export PYTHONPATH := $(UPRJ_RTL_PATH)/rgb_mixer/test
 
 .SUFFIXES:
 
-PATTERN = la_test2
+PATTERN = pong
 
-all:  ${PATTERN:=.vcd}
+all:  coco_test
 
 hex:  ${PATTERN:=.hex}
+
+coco_test: ${PATTERN}.hex
+	rm -rf sim_build/
+	mkdir sim_build/
+	iverilog -o sim_build/sim.vvp -s pong_tb pong_tb.v -DSIM -DFUNCTIONAL \
+	-I $(PDK_PATH) \
+	-I $(CARAVEL_BEHAVIOURAL_MODELS) -I $(CARAVEL_RTL_PATH) \
+	-I $(UPRJ_BEHAVIOURAL_MODELS)    -I $(UPRJ_RTL_PATH)
+	
+	MODULE=test_pong vvp -M $$(cocotb-config --prefix)/cocotb/libs -m libcocotbvpi_icarus sim_build/sim.vvp
 
 %.vvp: %_tb.v %.hex
 ifeq ($(SIM),RTL)

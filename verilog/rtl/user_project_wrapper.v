@@ -82,16 +82,16 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-user_proj_example mprj (
+wrapper pong_wrapper (
     `ifdef USE_POWER_PINS
-	.vdda1(vdda1),	// User area 1 3.3V power
-	.vdda2(vdda2),	// User area 2 3.3V power
-	.vssa1(vssa1),	// User area 1 analog ground
-	.vssa2(vssa2),	// User area 2 analog ground
-	.vccd1(vccd1),	// User area 1 1.8V power
-	.vccd2(vccd2),	// User area 2 1.8V power
-	.vssd1(vssd1),	// User area 1 digital ground
-	.vssd2(vssd2),	// User area 2 digital ground
+    .vdda1(vdda1),	// User area 1 3.3V power
+    .vdda2(vdda2),	// User area 2 3.3V power
+    .vssa1(vssa1),	// User area 1 analog ground
+    .vssa2(vssa2),	// User area 2 analog ground
+    .vccd1(vccd1),	// User area 1 1.8V power
+    .vccd2(vccd2),	// User area 2 1.8V power
+    .vssd1(vssd1),	// User area 1 digital ground
+    .vssd2(vssd2),	// User area 2 digital ground
     `endif
 
     .wb_clk_i(wb_clk_i),
@@ -110,9 +110,9 @@ user_proj_example mprj (
 
     // Logic Analyzer
 
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
+    .la_data_in(la_data_in[31:0]),
+    .la_data_out(la_data_out[31:0]),
+    .la_oenb (la_oenb[31:0]),
 
     // IO Pads
 
@@ -121,7 +121,9 @@ user_proj_example mprj (
     .io_oeb(io_oeb),
 
     // IRQ
-    .irq(user_irq)
+    .irq(user_irq),
+
+    .active(la_data_in[32+0])
 );
 
 endmodule	// user_project_wrapper
