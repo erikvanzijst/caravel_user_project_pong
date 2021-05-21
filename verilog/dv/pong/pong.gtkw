@@ -1,26 +1,29 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu May 20 20:56:58 2021
+[*] Fri May 21 01:27:17 2021
 [*]
 [dumpfile] "/home/erik/work/caravel_user_project/verilog/dv/pong/pong.vcd"
-[dumpfile_mtime] "Thu May 20 20:49:05 2021"
-[dumpfile_size] 131615063
+[dumpfile_mtime] "Fri May 21 01:23:40 2021"
+[dumpfile_size] 157245497
 [savefile] "/home/erik/work/caravel_user_project/verilog/dv/pong/pong.gtkw"
-[timestart] 237942000
-[size] 2095 1262
-[pos] -1 -1
-*-20.705864 249650000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 250846000
+[size] 2095 818
+[pos] -232 -161
+*-18.705864 249650000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] pong_tb.
 [treeopen] pong_tb.uut.
 [treeopen] pong_tb.uut.mprj.
 [treeopen] pong_tb.uut.mprj.pong_wrapper.
 [treeopen] pong_tb.uut.mprj.pong_wrapper.pong0.
+[treeopen] pong_tb.uut.mprj.pong_wrapper.pong0.game0.
 [treeopen] pong_tb.uut.soc.
 [treeopen] pong_tb.uut.soc.soc.
 [sst_width] 233
-[signals_width] 444
+[signals_width] 279
 [sst_expanded] 1
-[sst_vpaned_height] 375
+[sst_vpaned_height] 222
+@28
+pong_tb.clock
 @c00022
 pong_tb.uut.mprj.la_data_in[127:0]
 @28
@@ -160,7 +163,7 @@ pong_tb.uut.soc.soc.cpu.mem_addr[31:0]
 pong_tb.uut.soc.soc.cpu.mem_rdata[31:0]
 @200
 -
-@c00023
+@c00022
 pong_tb.uut.mprj_io[37:0]
 @28
 (0)pong_tb.uut.mprj_io[37:0]
@@ -201,13 +204,21 @@ pong_tb.uut.mprj_io[37:0]
 (35)pong_tb.uut.mprj_io[37:0]
 (36)pong_tb.uut.mprj_io[37:0]
 (37)pong_tb.uut.mprj_io[37:0]
-@1401201
+@1401200
 -group_end
 @28
 pong_tb.uut.mprj.pong_wrapper.active
 pong_tb.uut.mprj.pong_wrapper.pong0.reset
 @200
 -
+-Screen
+@22
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.x[3:0]
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.y[3:0]
+@23
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.row[3:0]
+@22
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.col[4:0]
 @28
 pong_tb.uut.mprj.pong_wrapper.pong0.CCLK
 pong_tb.uut.mprj.pong_wrapper.pong0.CSDI
@@ -219,5 +230,14 @@ pong_tb.uut.mprj.pong_wrapper.pong0.RSDI
 -
 @28
 pong_tb.uut.mprj.pong_wrapper.pong0.cath
+@200
+-
+-Ball
+@28
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.clk
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.reset
+@22
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.lpaddle[15:0]
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.cos_theta[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
