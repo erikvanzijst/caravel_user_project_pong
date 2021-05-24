@@ -123,7 +123,7 @@ wrapper pong_wrapper (
     // IRQ
     .irq(user_irq),
 
-    .active(la_data_in[32+0])
+    .active(la_data_in[32+4])   // Pong is project 4 in MPW-2
 );
 
 endmodule	// user_project_wrapper
